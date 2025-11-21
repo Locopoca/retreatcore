@@ -1,0 +1,107 @@
+:root {
+    --body-bg: #FAFAFA;
+    --page-bg: #F5F5F5;
+    --dark-text: #2A2935;
+    --baseline: 12px;
+    --title: 'Cormorant Garamond', serif;
+    --base-size: calc(var(--baseline) * 1.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, var(--body-bg) 0%, #e0e0e0 100%);
+    margin: 0;
+    padding: 0;
+    font-family: var(--title);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.timeline {
+    width: 100vw;
+    height: 200px;
+    /* height: 100vh; */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-inner {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollLeft 20s linear infinite;
+}
+
+.timeline:hover .timeline-inner {
+    animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.timeline-item {
+    display: inline-block;
+    padding: var(--baseline);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-title {
+    font-family: var(--title);
+    font-size: calc(var(--base-size) * 1.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark-text);
+    white-space: nowrap;
+}
+
+.timeline-description {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: fit-content;
+    animation: rainbow 21s ease-in-out infinite;
+    border: 2px solid var(--dark-text);
+    /* background-color: var(--page-bg); */
+    /* border-radius: 5px; */
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.2); */
+    padding: var(--baseline);
+    font-family: var(--title);
+    font-size: calc(var(--base-size) * 0.8);
+    font-weight: bold;
+    color: var(--dark-text);
+    text-align: left;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.timeline-item:hover .timeline-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+@keyframes rainbow {
+    0% { background-color: #FFB3BA; }
+    14% { background-color: #FFB3BA; }
+    28% { background-color: #FFB3BA; }
+    42% { background-color: #D1BAFF; }
+    57% { background-color: #D1BAFF; }
+    71% { background-color: #FFB3E6; }
+    85% { background-color: #FFB3BA; }
+    100% { background-color: #FFB3BA; }
+}
