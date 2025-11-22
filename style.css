@@ -48,7 +48,7 @@ body {
 .timeline-inner {
     display: inline-block;
     white-space: nowrap;
-    animation: scrollLeft 20s linear infinite;
+    animation: scrollLeft 42s linear infinite;
 }
 
 .timeline:hover .timeline-inner {
